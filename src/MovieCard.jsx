@@ -1,20 +1,20 @@
 import React from 'react'
 
-const MovieCard = (props) => {
+const MovieCard = ({ movie }) => {
     return (
         <div className="movie">
             <div>
-                <p>{props.movie.Year}</p>
+                <p>{movie.Year}</p>
             </div>
             <div>
                 <img
-                    src={props.movie.Poster !== 'N/A' ? props.movie.Poster : 'https://via.placeholder.com/400'} //if it doesn't have a poster, use a placeholder image
-                    alt={props.movie.Title}
+                    src={movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/400'} //if it doesn't have a poster, use a placeholder image
+                    alt={movie.Title}
                 />
             </div>
             <div>
-                <span>{props.movie.Type}</span>
-                <h3>{props.movie.Title}</h3>
+                <span>{movie.Type}</span>
+                <h3>{movie.Title}</h3>
             </div>
         </div>
     )
