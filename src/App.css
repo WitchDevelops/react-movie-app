@@ -19,7 +19,6 @@ body {
 
 .app {
   padding: 4rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,13 +40,11 @@ h1 {
 }
 
 .search {
-  width: 71%;
+  /* width: 71%; */
   margin: 4rem 0 2rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 1.5rem 1.75rem;
   border-radius: 3rem;
   background: #1f2123;
@@ -62,7 +59,6 @@ h1 {
   font-family: var(--font-raleway);
   font-weight: 500;
   padding-right: 1rem;
-
   outline: none;
   color: #a1a1a1;
   background: #1f2123;
@@ -74,25 +70,9 @@ h1 {
   cursor: pointer;
 }
 
-/* .search button {
-  padding: 20px 40px;
-  border-radius: 0.5rem;
-  margin-left: 15px;
-  color: #a1a1a1;
-  font-family: var(--font-raleway);
-  font-weight: 900;
-  letter-spacing: 0.75px;
-  font-size: 1.25rem;
-  cursor: pointer;
-  background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-} */
-
 .empty {
   width: 100%;
   margin-top: 3rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,23 +87,26 @@ h1 {
 .container {
   width: 100%;
   margin-top: 3rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
+.search-result__info {
+  color: #a1a1a1;
+  font-family: var(--font-raleway);
+  margin-inline: 0 auto;
+}
+
 .movie {
   width: 310px;
   height: 460px;
   margin: 1.5rem;
-
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   border: none;
-
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
 }
@@ -156,7 +139,6 @@ h1 {
   z-index: 2;
   background-color: #343739;
   padding: 16px 24px 24px 24px;
-
   position: absolute;
   bottom: 0;
   right: 0;

@@ -63,8 +63,8 @@ const App = () => {
         ) :
           movies?.length > 0 ? (
             <>
-              <div>
-                <p>Found {movies.length} movies for your '{searchTerm}' search</p>
+              <div className="search-result__info">
+                <p className="search-resutl__info-text">Found {movies.length} movies for your '{searchTerm}' search</p>
               </div>
               <div className="container">
                 {movies.map((movie, index) => (
