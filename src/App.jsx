@@ -48,11 +48,21 @@ const App = () => {
           }}
         >
         </input>
-        <img
+        <button
+          className="search-button"
+          onClick={() => { searchMovies(searchTerm) }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              searchMovies(searchTerm)
+            }
+          }}
+        >
+          <img
           src={SearchIcon}
           alt="search"
-          onClick={() => { searchMovies(searchTerm) }}
         />
+        </button>
+        
       </div>
 
       {

@@ -68,8 +68,22 @@ h1 {
   width: 35px;
   height: 35px;
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    scale: 0.9;
+  }
 }
+.search-button {
+  background: transparent;
+  padding: 6px 12px;
+  &:focus {
+    outline: 2px solid #f9d3b4;
+    border-radius: 8px;
+  }
 
+}
 .empty {
   width: 100%;
   margin-top: 3rem;
@@ -98,7 +112,11 @@ h1 {
   font-family: var(--font-raleway);
   margin-inline: 0 auto;
 }
-
+.error {
+  color: #e66342;
+  font-family: var(--font-raleway);
+  margin-inline: 0 auto;
+}
 .movie {
   width: 310px;
   height: 460px;
