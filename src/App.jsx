@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import SearchIcon from './assets/search.svg';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+// AOI key: 5c560c08
+
+const API_URL = 'http://www.omdbapi.com/?i=tt3896198&apikey=5c560c08';
+const App = () => {
+  const searchMovies = async (title) => {
+    const response = await fetch(`${API_URL}&s=${title}`);
+    const data = await response.json();
+    console.log(data.Search);
+
+  }
+  useEffect(() => {
+    searchMovies('Lion King');
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <h1>MovieLand</h1>
+      <div className="search">
+        <input
+          placeholder="Search for movies"
+          value="Lion King"
+          onChange={() => {}} // TODO
+        >
+        </input>
+        <img 
+          src={SearchIcon} 
+          alt="search"
+          onClick={() => {}} // TODO
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
