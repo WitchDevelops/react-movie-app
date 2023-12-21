@@ -10,11 +10,17 @@
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
+  --color-off-white: #f0f0f0;
+  --color-grey-300: #a1a1a1;
+  --color-accent-200: #f9d3b4;
+  --color-accent-600: #D88769;
+  --color-off-black: #212426;
+  --color-grey-800: #343739;
 }
 
 body {
   font-family: var(--font-roboto);
-  background-color: #212426;
+  background-color: var(--color-off-black);
 }
 
 .app {
@@ -60,7 +66,7 @@ h1 {
   font-weight: 500;
   padding-right: 1rem;
   outline: none;
-  color: #a1a1a1;
+  color: var(--color-grey-300);
   background: #1f2123;
 }
 
@@ -79,7 +85,7 @@ h1 {
   background: transparent;
   padding: 6px 12px;
   &:focus {
-    outline: 2px solid #f9d3b4;
+    outline: 2px solid var(--color-accent-200);
     border-radius: 8px;
   }
 
@@ -94,7 +100,7 @@ h1 {
 
 .empty h2 {
   font-size: 1.25rem;
-  color: #f9d3b4;
+  color: var(--color-accent-200);
   font-family: var(--font-raleway);
 }
 
@@ -135,7 +141,7 @@ h1 {
   width: 100%;
   opacity: 0;
   top: 0;
-  color: #f9d3b4;
+  color: var(--color-accent-200);
 }
 
 .movie:hover {
@@ -155,7 +161,7 @@ h1 {
 
 .movie div:nth-of-type(3) {
   z-index: 2;
-  background-color: #343739;
+  background-color: var(--color-grey-800);
   padding: 16px 24px 24px 24px;
   position: absolute;
   bottom: 0;
@@ -169,13 +175,13 @@ h1 {
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 500;
-  color: #f0f0f0;
+  color: var(--color-off-white);
 }
 
 .movie div:nth-of-type(3) h3 {
   margin-top: 5px;
   font-family: "Roboto Slab", serif;
-  color: #f9d3b4;
+  color: var(--color-accent-200);
 }
 
 .movie:hover div:nth-of-type(2) {
@@ -228,4 +234,37 @@ h1 {
     width: "100%";
     margin: 1rem;
   }
+}
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination button {
+  background-color: var(--color-grey-300);
+  color: var(--color-off-black);
+  width: 3em;
+  height: 3em;
+  border: none;
+  border-radius: 99px;
+  padding: 0.2em;
+  cursor: pointer;
+  font-family: var(--font-raleway);
+  font-size: 1.2rem;
+  font-weight: 700;
+  &:focus {
+    background-color: var(--color-accent-200);
+  }
+  &:hover {
+    background-color: var(--color-accent-200);
+  }
+  &:active {
+    background-color: var(--color-accent-600);
+    color: var(--color-off-white);
+    opacity: 0.7;
+  }
+}
+.pagination button.active {
+  background-color: var(--color-accent-600);
+  color: var(--color-off-white);
 }
