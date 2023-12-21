@@ -4,7 +4,6 @@ import SearchIcon from './assets/search.svg';
 import './assets/LoadingSpinner.css';
 import './App.css';
 
-// AOI key: 5c560c08
 const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=5c560c08";
 
 const App = () => {
@@ -12,12 +11,14 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const moviesPerPage = 9;
 
-  const searchMovies = async (title) => {
+  const searchMovies = async (title, page) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_URL}&s=${title}`);
+      const response = await fetch(`${API_URL}&s=${title}&page=${page}`);
       const data = await response.json();
       if (data.Response === 'True') {
         setMovies(data.Search);
@@ -30,8 +31,10 @@ const App = () => {
     setLoading(false);
   }
   useEffect(() => {
-    searchMovies('The Lion King');
-  }, []);
+    searchMovies(searchTerm || 'The Lion King', currentPage);
+  }, [searchTerm, currentPage]);
+
+  const totalPages = Math.ceil(movies.length / moviesPerPage);
 
   return (
     <div className="app">
@@ -77,7 +80,7 @@ const App = () => {
                 <p className="search-resutl__info-text">Found {movies.length} movies for your '{searchTerm}' search</p>
               </div>
               <div className="container">
-                {movies.map((movie, index) => (
+                {movies.slice(0,9).map((movie, index) => (
                   <MovieCard movie={movie} key={index} />
                 ))}
               </div>
@@ -89,7 +92,21 @@ const App = () => {
           )
       }
 
-
+      <div className="pagination">
+        <button
+          disabled={currentPage ===1}
+          onClick={() => setCurrentPage(currentPage - 1)}
+        >
+          Previous
+        </button>
+        <span>{currentPage}</span>
+        <button
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage(currentPage + 1)}
+        >
+          Next
+        </button>
+      </div>
     </div>
   )
 }
